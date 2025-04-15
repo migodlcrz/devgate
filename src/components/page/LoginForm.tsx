@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Card from "../ui/Card";
 import Button from "../ui/Button";
+import { registerWithCreds } from "@/actions/auth";
 
 const LoginForm = () => {
   const [loginForm, setLoginForm] = useState({
@@ -12,7 +13,13 @@ const LoginForm = () => {
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Login form submitted", loginForm);
+
+    const formData = new FormData();
+
+    formData.append("email", loginForm.email);
+    formData.append("password", loginForm.password);
+
+    // registerWithCreds(formData);
   };
 
   return (
