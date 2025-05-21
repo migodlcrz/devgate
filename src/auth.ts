@@ -8,7 +8,7 @@ import { connectToDatabase } from "./lib/mongoose";
 import { User } from "./models/User";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.AUTH_SECRET,
   adapter: MongoDBAdapter(client),
   providers: [
     Credentials({
