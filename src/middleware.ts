@@ -16,7 +16,7 @@ export async function middleware(request: NextRequest) {
   });
   // console.log("middleware", token);
   if (token && request.nextUrl.pathname === "/") {
-    return NextResponse.redirect(new URL("/landing-page", request.url));
+    return NextResponse.redirect(new URL("/home", request.url));
   }
   if (!token && isProtected) {
     return NextResponse.redirect(new URL("/", request.url));
